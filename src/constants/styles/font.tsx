@@ -68,22 +68,18 @@ export const FONT_STYLES: FontStylesType = {
   h1: {
     fontFamily: "Roboto-Light",
     fontSize: 60,
-    lineHeight: 48,
   },
   h2: {
     fontFamily: "Roboto-Light",
     fontSize: 60,
-    lineHeight: 60,
   },
   h3: {
     fontFamily: "Roboto-Regular",
     fontSize: 48,
-    lineHeight: 48,
   },
   h4: {
     fontFamily: "Roboto-Regular",
     fontSize: 34,
-    lineHeight: 28,
   },
   h5: {
     fontFamily: "Roboto-Regular",
@@ -94,53 +90,43 @@ export const FONT_STYLES: FontStylesType = {
     fontSize: 15,
   },
   title: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Roboto-Black",
     fontSize: 16,
-    lineHeight: 24,
   },
   subtitle: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    lineHeight: 24,
   },
   button: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    lineHeight: 24,
   },
   link: {
     fontFamily: "Roboto-Regular",
     fontSize: 12,
-    lineHeight: 20,
   },
   body1: {
     fontFamily: "Roboto-Regular",
     fontSize: 18,
-    lineHeight: 24,
   },
   body2: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    lineHeight: 24,
   },
   helper: {
     fontFamily: "Roboto-Regular",
     fontSize: 14,
-    lineHeight: 20,
   },
   caption: {
     fontFamily: "Roboto-Regular",
     fontSize: 12,
-    lineHeight: 20,
   },
   overline: {
     fontFamily: "Roboto-Bold",
     fontSize: 12,
-    lineHeight: 16,
   },
   label: {
     fontFamily: "Roboto-Medium",
     fontSize: 12,
-    lineHeight: 16,
   },
 };

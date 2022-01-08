@@ -4,7 +4,8 @@ import { Animated } from "react-native";
 import { Block } from "../components";
 import layout from "../constants/styles/layout";
 import { MissingWordQuestion } from "./missingWord/question";
-import { GAME_HEIGHT } from "./style";
+import { QuestionResult } from "./questionResult/questionResult";
+import { GAME_HEIGHT, RESULT_HEIGHT } from "./style";
 
 const INITIAL_BOTTOM = -1 * GAME_HEIGHT;
 // const INITIAL_BOTTOM = 0;
@@ -14,23 +15,23 @@ export function GameScreen({}) {
   // theme
   const { colors } = useTheme() as AppTheme;
   // state
-  const [bottom] = useState(new Animated.Value(INITIAL_BOTTOM));
+  const [bottom] = useState(new Animated.Value(0));
 
-//   useEffect(() => {
-//     Animated.timing(bottom, {
-//       toValue: 0,
-//       duration: ANIMATION_TIME,
-//       useNativeDriver: false,
-//     });
-//     // else
-//     //   Animated.timing(top, {
-//     //     toValue: initialTop,
-//     //     duration: TIME_APP_MENU,
-//     //     useNativeDriver: false,
-//     //   }).start(() => {
-//     //     setIsOpen(false);
-//     //   });
-//   }, []);
+  //   useEffect(() => {
+  //     Animated.timing(bottom, {
+  //       toValue: 0,
+  //       duration: ANIMATION_TIME,
+  //       useNativeDriver: false,
+  //     });
+  //     // else
+  //     //   Animated.timing(top, {
+  //     //     toValue: initialTop,
+  //     //     duration: TIME_APP_MENU,
+  //     //     useNativeDriver: false,
+  //     //   }).start(() => {
+  //     //     setIsOpen(false);
+  //     //   });
+  //   }, []);
 
   return (
     <Block flex={1} color={colors.background}>
@@ -43,6 +44,16 @@ export function GameScreen({}) {
         }}
       >
         <MissingWordQuestion />
+      </Animated.View>
+      <Animated.View
+        style={{
+          position: "absolute",
+          bottom,
+          height: RESULT_HEIGHT,
+          width: layout.window.width,
+        }}
+      >
+        <QuestionResult success />
       </Animated.View>
     </Block>
   );
