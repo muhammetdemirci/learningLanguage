@@ -2,7 +2,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import useCachedResources from "./src/hooks/useCachedResources";
 import useColorScheme from "./src/hooks/useColorScheme";
-import { GameScreen } from "./src/screens/GameScreen";
+import Navigation from "./src/navigation";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -13,7 +13,7 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <GameScreen />
+        <Navigation />
       </SafeAreaProvider>
     );
   }

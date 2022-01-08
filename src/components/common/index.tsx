@@ -7,8 +7,4 @@ export * from "./loading";
 export * from "./codeInput";
 export * from "./image";
 export * from "./slider";
-export * from "./switch";
 export * from "./scrollBlock";
-export * from "./reanimated-bottom-sheet";
-export * from "./modal";
-export * from "./icon";

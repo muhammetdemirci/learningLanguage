@@ -1,7 +1,7 @@
 import React from "react";
 import { TextBase, TextBaseProps } from "./base";
 import { withMarginAndPaddingProps } from "../hocs";
-import { FONT_STYLES } from "../../../constants/font";
+import { FONT_STYLES } from "../../../constants/styles/font";
 import { StyleProp, TextStyle } from "react-native";
 import { useTheme } from "@react-navigation/native";
 
