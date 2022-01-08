@@ -1,5 +1,5 @@
 import { useTheme } from "@react-navigation/native";
-import React from "react";
+import React, { useState } from "react";
 import { Block, Text } from "../../components";
 import { GAME_HEIGHT } from "../style";
 import HighlightText from "@sanar/react-native-highlight-text";
@@ -7,13 +7,26 @@ import { Sentence } from "./sentence";
 import { Answer } from "./answer";
 import { ButtonContainer } from "../../components";
 
-export interface MissingWordQuestionProps {}
+export interface MissingWordQuestionProps {
+  answers: Array<string>;
+  sentenceEn: string;
+  sentenceDe: string;
+  wordEn: string;
+  wordDe: string;
+}
 
-export function MissingWordQuestion({}: MissingWordQuestionProps) {
+export function MissingWordQuestion({
+  answers,
+  sentenceEn,
+  sentenceDe,
+  wordEn,
+  wordDe,
+}: MissingWordQuestionProps) {
   // theme
   const { colors } = useTheme() as AppTheme;
 
-  const answers = ["folgen", "Schaf", "Bereiden", "Hause"];
+  // state
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
   return (
     <Block
@@ -42,10 +55,10 @@ export function MissingWordQuestion({}: MissingWordQuestionProps) {
             fontSize: 24,
             margin: 16,
           }}
-          searchWords={["house"]}
-          textToHighlight={"The house is small"}
+          searchWords={[wordEn]}
+          textToHighlight={sentenceEn}
         />
-        <Sentence text="Das House is klein" />
+        <Sentence text={sentenceDe} wordHided={wordDe} selectedAnswer={selectedAnswer} />
 
         <Block
           margin={16}
@@ -57,7 +70,12 @@ export function MissingWordQuestion({}: MissingWordQuestionProps) {
           }}
         >
           {answers.map((answer, index) => (
-            <Answer text={answer} />
+            <Answer
+              key={index.toString()}
+              text={answer}
+              selected={selectedAnswer === answer}
+              onPress={() => setSelectedAnswer(answer)}
+            />
           ))}
         </Block>
       </Block>
