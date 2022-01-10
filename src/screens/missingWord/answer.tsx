@@ -1,5 +1,5 @@
 import { useTheme } from "@react-navigation/native";
-import React, { Fragment } from "react";
+import React from "react";
 import {
   Block,
   Text,

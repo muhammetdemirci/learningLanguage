@@ -1,6 +1,6 @@
 import { useTheme } from "@react-navigation/native";
-import React, { Fragment, useEffect, useState } from "react";
-import { Block, BlockProps, Text } from "../../components";
+import React, { useEffect, useState } from "react";
+import { Block, BlockProps } from "../../components";
 import { Answer } from "./answer";
 import { Word } from "./word";
 import { useSelector } from "react-redux";

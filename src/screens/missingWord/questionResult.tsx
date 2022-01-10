@@ -20,8 +20,6 @@ export function QuestionResult({
   // theme
   const { colors } = useTheme() as AppTheme;
 
-  const answers = ["folgen", "Schaf", "Bereiden", "Hause"];
-
   return (
     <Block
       height={RESULT_HEIGHT}

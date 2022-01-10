@@ -1,6 +1,6 @@
 import { useTheme } from "@react-navigation/native";
-import React, { Fragment } from "react";
-import { Block, Text, TouchableOpacity } from "../../components";
+import React from "react";
+import { Block, Text } from "../../components";
 
 export interface WordTranslateProps {
   text?: string;
