@@ -58,19 +58,11 @@ export function Sentence({
             />
           );
         return (
-          <BlockAnswer biggestLength={biggestLength}>
+          <BlockAnswer key={index.toString()} biggestLength={biggestLength}>
             {selectedAnswer ? (
-              <Answer
-                key={index.toString()}
-                text={selectedAnswer}
-                fontFamily={"h6"}
-              />
+              <Answer text={selectedAnswer} fontFamily={"h6"} />
             ) : (
-              <Word
-                key={index.toString()}
-                text={new Array(biggestLength * 3).join(" ")}
-                showDot
-              />
+              <Word text={new Array(biggestLength * 3).join(" ")} showDot />
             )}
           </BlockAnswer>
         );
