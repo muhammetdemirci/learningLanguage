@@ -72,6 +72,16 @@ export function GameScreen({}) {
     });
   };
 
+  const onPressPlayAgain = () => {
+    Animated.timing(bottom, {
+      toValue: QUESTION_INITIAL_BOTTOM,
+      duration: QUESTION_ANIMATION_TIME,
+      useNativeDriver: false,
+    }).start(() => {
+      setIndex(0);
+    });
+  };
+
   return (
     <Block flex color={colors.background}>
       <Animated.View
@@ -92,7 +102,7 @@ export function GameScreen({}) {
             />
           ) : null
         ) : (
-          <GameResultScreen onPressPlayAgain={() => setIndex(0)} />
+          <GameResultScreen onPressPlayAgain={onPressPlayAgain} />
         )}
       </Animated.View>
     </Block>
