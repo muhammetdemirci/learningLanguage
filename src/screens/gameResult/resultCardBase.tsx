@@ -36,7 +36,15 @@ export function GameResultCardBase({
   const { colors } = useTheme() as AppTheme;
 
   return (
-    <Block row between margin={[4, 0]} padding={8} borderRadius={8} {...rest}>
+    <Block
+      color={colors.card}
+      row
+      between
+      margin={[4, 0]}
+      padding={8}
+      borderRadius={8}
+      {...rest}
+    >
       <Block flex>
         <Text
           color={colors.primary}

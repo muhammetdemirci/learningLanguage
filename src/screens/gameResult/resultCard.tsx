@@ -12,7 +12,6 @@ export function GameResultCard({ result }: GameResultCardProps) {
 
   return (
     <GameResultCardBase
-      color={colors.card}
       left={result.wordEn}
       leftStyle={{
         color: result.success ? colors.correct : colors.wrong,
