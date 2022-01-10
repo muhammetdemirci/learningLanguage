@@ -1,17 +1,22 @@
 import { useTheme } from "@react-navigation/native";
 import React from "react";
 import { Block, Text } from "../../components";
-import { GAME_HEIGHT, RESULT_HEIGHT } from "../style";
-import HighlightText from "@sanar/react-native-highlight-text";
+import { RESULT_HEIGHT } from "../style";
 import { ButtonContainer } from "../../components";
 import { FontAwesome } from "@expo/vector-icons";
 import layout from "../../constants/styles/layout";
 
 export interface QuestionResultProps {
+  answer: string;
   success: boolean;
+  onPressNext: () => void;
 }
 
-export function QuestionResult({ success }: QuestionResultProps) {
+export function QuestionResult({
+  answer,
+  success,
+  onPressNext,
+}: QuestionResultProps) {
   // theme
   const { colors } = useTheme() as AppTheme;
 
@@ -36,11 +41,11 @@ export function QuestionResult({ success }: QuestionResultProps) {
         between
       >
         <Text fontFamily={"title"}>
-          {success ? "Great Job" : "Answer: Hause"}
+          {success ? "Great Job" : `Answer: ${answer}`}
         </Text>
         <FontAwesome name="flag" color={colors.text} />
       </Block>
-      <ButtonContainer text="Continue" />
+      <ButtonContainer text="Continue" onPress={onPressNext} />
     </Block>
   );
 }

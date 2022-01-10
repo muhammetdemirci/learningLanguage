@@ -1,13 +1,13 @@
 import { useTheme } from "@react-navigation/native";
-import React, { Fragment } from "react";
-import { Block, Text, TouchableOpacity, TouchableOpacityProps } from "..";
+import React from "react";
+import { Text, TouchableOpacity, TouchableOpacityProps } from "../common";
 import layout from "../../constants/styles/layout";
 
 export interface ButtonContainerProps extends TouchableOpacityProps {
   text: string;
 }
 
-export function ButtonContainer({ text }: ButtonContainerProps) {
+export function ButtonContainer({ text, ...rest }: ButtonContainerProps) {
   // theme
   const { colors } = useTheme() as AppTheme;
 
@@ -20,6 +20,7 @@ export function ButtonContainer({ text }: ButtonContainerProps) {
       borderRadius={32}
       alignCenter
       justifyCenter
+      {...rest}
     >
       <Text fontFamily={"h5"} color={colors["background-game"]}>
         {text}
