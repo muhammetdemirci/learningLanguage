@@ -17,14 +17,17 @@ export function GameResultCard({ result }: GameResultCardProps) {
       leftStyle={{
         color: result.success ? colors.correct : colors.wrong,
       }}
+      leftFontFamily={"button"}
       center={result.answer}
       centerStyle={{
         color: result.success ? colors.correct : colors.wrong,
       }}
+      centerFontFamily={"button"}
       right={result.wordDe}
       rightStyle={{
         color: result.success ? colors.correct : colors.wrong,
       }}
+      rightFontFamily={"button"}
     />
   );
 }

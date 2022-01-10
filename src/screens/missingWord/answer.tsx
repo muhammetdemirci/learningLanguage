@@ -10,17 +10,24 @@ import {
 export interface AnswerProps extends TouchableOpacityProps {
   text: string;
   selected?: boolean;
+  fontFamily?: FontFamily;
 }
 
-export function Answer({ text, selected, ...rest }: AnswerProps) {
+export function Answer({
+  text,
+  selected,
+  fontFamily = "h5",
+  ...rest
+}: AnswerProps) {
   // theme
   const { colors } = useTheme() as AppTheme;
 
   return (
     <TouchableOpacity
       color={colors.text}
+      height={40}
       margin={8}
-      padding={[12, 16]}
+      padding={[8, 12]}
       borderRadius={16}
       alignCenter
       justifyCenter
@@ -41,7 +48,7 @@ export function Answer({ text, selected, ...rest }: AnswerProps) {
           }}
         />
       ) : null}
-      <Text fontFamily={"h5"} color={colors["background-game"]}>
+      <Text fontFamily={fontFamily} color={colors["background-game"]}>
         {text}
       </Text>
     </TouchableOpacity>

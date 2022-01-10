@@ -23,13 +23,32 @@ export function Sentence({ text, wordHided, selectedAnswer }: SentenceProps) {
   }, [text]);
 
   return (
-    <Block row height={80} alignEnd>
+    <Block
+      row
+      margin={[8, 0]}
+      alignEnd
+      justifyCenter
+      style={{
+        flexWrap: "wrap",
+      }}
+    >
       {words.map((word, index) => {
         if (word !== wordHided)
-          return <Word key={index.toString()} text={word} />;
+          return (
+            <Word key={index.toString()} text={word} textTranslated={"XXX"} />
+          );
         else if (selectedAnswer)
-          return <Answer key={index.toString()} text={selectedAnswer} />;
-        else return <Word key={index.toString()} text={"        "} />;
+          return (
+            <Answer
+              key={index.toString()}
+              text={selectedAnswer}
+              fontFamily={"h6"}
+            />
+          );
+        else
+          return (
+            <Word key={index.toString()} text={"                       "} />
+          );
       })}
     </Block>
   );

@@ -7,13 +7,18 @@ export interface ButtonContainerProps extends TouchableOpacityProps {
   text: string;
 }
 
-export function ButtonContainer({ text, ...rest }: ButtonContainerProps) {
+export function ButtonContainer({
+  disabled,
+  text,
+  ...rest
+}: ButtonContainerProps) {
   // theme
   const { colors } = useTheme() as AppTheme;
 
   return (
     <TouchableOpacity
-      color={colors.text}
+      color={disabled ? colors.disabled : colors.text}
+      disabled={disabled}
       margin={8}
       padding={[12, 16]}
       width={layout.window.width - 48}

@@ -86,7 +86,7 @@ export function MissingWordQuestion({
             color: colors.text,
             fontFamily: "Roboto-Regular",
             fontSize: 24,
-            margin: 16,
+            margin: 8,
           }}
           searchWords={[wordEn]}
           textToHighlight={sentenceEn}
@@ -96,9 +96,8 @@ export function MissingWordQuestion({
           wordHided={wordDe}
           selectedAnswer={selectedAnswer}
         />
-
         <Block
-          margin={16}
+          margin={8}
           row
           alignCenter
           justifyCenter
@@ -117,7 +116,11 @@ export function MissingWordQuestion({
         </Block>
       </Block>
       <Block margin={[16, 0]}>
-        <ButtonContainer text={"Continue"} onPress={onPressContinue} />
+        <ButtonContainer
+          disabled={!selectedAnswer}
+          text={"Continue"}
+          onPress={onPressContinue}
+        />
       </Block>
       <Animated.View
         style={{

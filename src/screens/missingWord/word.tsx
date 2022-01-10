@@ -6,24 +6,27 @@ import { WordTranslate } from "./wordTranslate";
 
 export interface WordProps {
   text: string;
+  textTranslated?: string;
 }
 
-export function Word({ text }: WordProps) {
+export function Word({ text, textTranslated }: WordProps) {
   // theme
   const { colors } = useTheme() as AppTheme;
 
   const [showTranslate, setShowTranslate] = useState(false);
 
   return (
-    <Block justifyCenter alignCenter margin={[0, 6]}>
-      <View style={{}}>
-        {showTranslate ? <WordTranslate text={text} /> : null}
-      </View>
+    <Block margin={8} height={80}>
+      <Block flex>
+        {textTranslated && showTranslate ? (
+          <WordTranslate text={textTranslated} />
+        ) : null}
+      </Block>
       <TouchableOpacity
         margin={6}
         onPress={() => setShowTranslate(!showTranslate)}
       >
-        <Text fontFamily={"h5"} color={colors.text} style={{}}>
+        <Text fontFamily={"h6"} color={colors.text} style={{}}>
           {text}
         </Text>
       </TouchableOpacity>

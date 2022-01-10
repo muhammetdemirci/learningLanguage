@@ -87,7 +87,7 @@ export const FONT_STYLES: FontStylesType = {
   },
   h6: {
     fontFamily: "Roboto-Medium",
-    fontSize: 15,
+    fontSize: 16,
   },
   title: {
     fontFamily: "Roboto-Black",

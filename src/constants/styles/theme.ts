@@ -20,6 +20,7 @@ declare global {
       correct: string;
       wrong: string;
       black: string;
+      disabled: string;
     };
   }
 }
@@ -29,8 +30,9 @@ export const DefaultTheme = {
   colors: {
     ...RNDefaultTheme.colors,
 
-    card: "#f4f4f4",
+    card: "#ffffff",
     text: "#ffffff",
+    disabled: "rgba(1,1,1,0)",
     background: "rgb(117,219,253)",
     "background-game": "rgb(60,109,129)",
     "button-disable": "rgb(100,147,167)",
