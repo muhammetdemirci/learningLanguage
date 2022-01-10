@@ -1,0 +1,60 @@
+{
+  "examples": [
+    {
+      "sentenceDe": "Das Hause ist klein",
+      "sentenceEn": "The house is small",
+      "wordDe": "Hause",
+      "wordEn": "house"
+    },
+    {
+      "sentenceDe": "Deine Zeit ist begrenzt",
+      "sentenceEn": "Your time is limited",
+      "wordDe": "Zeit",
+      "wordEn": "time"
+    },
+    {
+      "sentenceDe": "Meine größte Motivation",
+      "sentenceEn": "My biggest motivation",
+      "wordDe": "größte",
+      "wordEn": "biggest"
+    },
+    {
+      "sentenceDe": "Erfolg ist nicht das, was man hat",
+      "sentenceEn": "Success is not what you have",
+      "sentence_en": "Success is not what you have",
+      "wordDe": "Erfolg",
+      "wordEn": "Success"
+    },
+    {
+      "sentenceDe": "Selbstbildung wird dir ein Vermögen einbringen",
+      "sentenceEn": "Self-education will make you a fortune.",
+      "wordDe": "Selbstbildung",
+      "wordEn": "Self-education"
+    }
+  ],
+  "dictionaries": {
+    "Das": "The",
+    "Hause": "House",
+    "ist": "is",
+    "klein": "small",
+    "Deine": "Your",
+    "Zeit": "Time",
+    "begrenzt": "limited",
+    "Meine": "My",
+    "größte": "greatest",
+    "Motivation": "Motivation",
+    "Erfolg": "success",
+    "ist": "is",
+    "nicht": "not",
+    "das": "the",
+    "was": "what",
+    "man": "man",
+    "hat": "has",
+    "Selbstbildung": "Self-education",
+    "wird": "will",
+    "dir": "to you",
+    "ein": "one",
+    "Vermögen": "assets",
+    "einbringen": "bring in"
+  }
+}

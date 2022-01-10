@@ -5,25 +5,6 @@ import { FONT_STYLES } from "../../../constants/styles/font";
 import { StyleProp, TextStyle } from "react-native";
 import { useTheme } from "@react-navigation/native";
 
-declare global {
-  type FontFamily =
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "title"
-    | "subtitle"
-    | "button"
-    | "link"
-    | "body1"
-    | "body2"
-    | "helper"
-    | "caption"
-    | "overline"
-    | "label";
-}
 export interface TextProps extends TextBaseProps, withMarginAndPaddingProps {
   fontFamily: FontFamily;
 

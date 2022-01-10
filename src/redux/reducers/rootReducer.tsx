@@ -31,11 +31,21 @@ const gameResult = initReducer(REDUCERS.gameResult, {
   results: [],
 });
 
+interface FirebaseReducerProps {
+  examples: Array<FirebaseExample>;
+  dictionaries: any;
+}
+const firebase = initReducer(REDUCERS.firebase, {
+  results: [],
+  dictionaries: {},
+});
+
 declare global {
   interface AppRootState {
     app: AppReducerProps;
     status: StatusReducerProps;
     gameResult: GameResultReducerProps;
+    firebase: FirebaseReducerProps;
   }
 }
 
@@ -44,6 +54,7 @@ const rootReducer = combineReducers<AppRootState>({
   app,
   status,
   gameResult,
+  firebase,
 });
 
 export default rootReducer;

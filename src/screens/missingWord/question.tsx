@@ -70,6 +70,12 @@ export function MissingWordQuestion({
     });
   };
 
+  const findBiggestLength = () => {
+    return answers.reduce(function (a, b) {
+      return a.length > b.length ? a : b;
+    });
+  };
+
   return (
     <GameBaseBlock alignCenter>
       <Block flex alignCenter>
@@ -95,6 +101,7 @@ export function MissingWordQuestion({
           text={sentenceDe}
           wordHided={wordDe}
           selectedAnswer={selectedAnswer}
+          biggestLength={findBiggestLength().length}
         />
         <Block
           margin={8}

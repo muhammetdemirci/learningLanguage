@@ -12,22 +12,30 @@ import {
 import { getDatabase, ref, onValue } from "firebase/database";
 import { shuffle } from "../utils/array";
 import { GameResultScreen } from "./gameResult/GameResultScreen";
+import * as reduxActions from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 export function GameScreen({}) {
   // theme
   const { colors } = useTheme() as AppTheme;
+
+  // redux
+  const dispatch = useDispatch();
+  const {
+    firebase: { examples },
+  } = useSelector((state) => state) as AppRootState;
+
   // state
   const [bottom] = useState(new Animated.Value(QUESTION_INITIAL_BOTTOM));
 
-  const [examples, setExamples] = useState<Array<FirebaseExample>>([]);
   const [index, setIndex] = useState(4);
 
   useEffect(() => {
     const db = getDatabase();
-    const reference = ref(db, "examples");
+    const reference = ref(db);
     onValue(reference, (snapshot) => {
       const data = snapshot.val();
-      setExamples(Object.values(data));
+      dispatch(reduxActions.firebase.changeReducer(data));
     });
   }, []);
 

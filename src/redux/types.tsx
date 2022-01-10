@@ -10,6 +10,7 @@ export const REDUCERS = {
   app: "app",
   status: "status",
   gameResult: "gameResult",
+  firebase: "firebase",
 };
 
 declare global {

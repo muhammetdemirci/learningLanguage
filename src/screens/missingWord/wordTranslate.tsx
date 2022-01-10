@@ -3,22 +3,24 @@ import React, { Fragment } from "react";
 import { Block, Text, TouchableOpacity } from "../../components";
 
 export interface WordTranslateProps {
-  text: string;
+  text?: string;
+
+  hide?: boolean;
 }
 
-export function WordTranslate({ text }: WordTranslateProps) {
+export function WordTranslate({ text, hide }: WordTranslateProps) {
   // theme
   const { colors } = useTheme() as AppTheme;
 
   return (
     <Block
-      color={colors.text}
-      padding={[6, 8]}
+      color={hide ? colors["background-game"] : colors.text}
+      padding={4}
       borderRadius={10}
       alignCenter
       justifyCenter
     >
-      <Text fontFamily={"h6"} color={colors["background-game"]}>
+      <Text fontFamily={"h7"} color={colors["background-game"]}>
         {text}
       </Text>
     </Block>

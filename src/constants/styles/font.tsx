@@ -1,4 +1,23 @@
 declare global {
+  type FontFamily =
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "h7"
+    | "title"
+    | "subtitle"
+    | "button"
+    | "link"
+    | "body1"
+    | "body2"
+    | "helper"
+    | "caption"
+    | "overline"
+    | "label";
+
   interface FontStyle {
     fontFamily: string;
     fontSize: number;
@@ -12,6 +31,7 @@ declare global {
     h4: undefined;
     h5: undefined;
     h6: undefined;
+    h7: undefined;
     title: undefined;
     subtitle: undefined;
     button: undefined;
@@ -52,6 +72,7 @@ interface FontStylesType {
   h4: FontStyleType;
   h5: FontStyleType;
   h6: FontStyleType;
+  h7: FontStyleType;
   title: FontStyleType;
   subtitle: FontStyleType;
   button: FontStyleType;
@@ -88,6 +109,10 @@ export const FONT_STYLES: FontStylesType = {
   h6: {
     fontFamily: "Roboto-Medium",
     fontSize: 16,
+  },
+  h7: {
+    fontFamily: "Roboto-Medium",
+    fontSize: 14,
   },
   title: {
     fontFamily: "Roboto-Black",

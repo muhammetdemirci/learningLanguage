@@ -10,7 +10,7 @@ const persistConfig = {
 
   storage: AsyncStorage,
 
-  whitelist: ["app"],
+  whitelist: ["app", "firebase"],
   blacklist: [],
 };
 

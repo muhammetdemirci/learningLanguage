@@ -21,7 +21,7 @@ export function GameResultScreen({ onPressPlayAgain }: GameResultScreenProps) {
   } = useSelector((state) => state) as AppRootState;
 
   return (
-    <GameBaseBlock flex color={colors.primary}>
+    <GameBaseBlock flex color={colors["background-game"]}>
       <Block flex margin={[16, 0]}>
         <GameResultCardBase
           left={"Word"}
