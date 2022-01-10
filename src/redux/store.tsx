@@ -26,4 +26,12 @@ const store = createStore(
 
 let persistor = persistStore(store);
 
+declare global {
+  // Infer the `RootState` and `AppDispatch` types from the store itself
+  type RootState = ReturnType<typeof store.getState>;
+
+  // Inferred type
+  type AppDispatch = typeof store.dispatch;
+}
+
 export { store, persistor };

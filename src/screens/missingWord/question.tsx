@@ -13,34 +13,34 @@ import { ButtonContainer } from "../../components";
 import { Animated } from "react-native";
 import layout from "../../constants/styles/layout";
 import { QuestionResult } from "./questionResult";
+import { useDispatch } from "react-redux";
+import * as reduxActions from "../../redux/actions";
 
 export interface MissingWordQuestionProps {
   answers: Array<string>;
-  sentenceEn: string;
-  sentenceDe: string;
-  wordEn: string;
-  wordDe: string;
-  onPressNextQuestion: (word: string, success: boolean, answer: string) => void;
+  example: FirebaseExample;
+  onPressNextQuestion: () => void;
 }
 
 export function MissingWordQuestion({
   answers,
-  sentenceEn,
-  sentenceDe,
-  wordEn,
-  wordDe,
+  example,
   onPressNextQuestion,
 }: MissingWordQuestionProps) {
+  // props
+  const { sentenceEn, sentenceDe, wordEn, wordDe } = example;
+
   // theme
   const { colors } = useTheme() as AppTheme;
+
+  // redux
+  const dispatch = useDispatch();
 
   // state
   const [selectedAnswer, setSelectedAnswer] = useState("");
 
   // animations
-  const [resultbottom, setResultBottom] = useState(
-    new Animated.Value(RESULT_INITIAL_BOTTOM)
-  );
+  const [resultbottom] = useState(new Animated.Value(RESULT_INITIAL_BOTTOM));
 
   const onPressContinue = () => {
     // Check result is true
@@ -49,18 +49,23 @@ export function MissingWordQuestion({
       toValue: 0,
       duration: RESULT_ANIMATION_TIME,
       useNativeDriver: false,
-    }).start(() => {
-      console.log("re", resultbottom);
-    });
+    }).start(() => {});
   };
 
-  const onPressNext = (success: boolean, selectedAnswer: string) => {
+  const onPressNext = () => {
     Animated.timing(resultbottom, {
       toValue: RESULT_INITIAL_BOTTOM,
       duration: RESULT_ANIMATION_TIME,
       useNativeDriver: false,
     }).start(() => {
-      onPressNextQuestion(wordEn, success, selectedAnswer);
+      dispatch(
+        reduxActions.gameResult.saveResult({
+          ...example,
+          answer: selectedAnswer,
+          success: selectedAnswer === wordDe,
+        })
+      );
+      onPressNextQuestion();
     });
   };
 
@@ -133,9 +138,7 @@ export function MissingWordQuestion({
         <QuestionResult
           answer={wordDe}
           success={selectedAnswer === wordDe}
-          onPressNext={() =>
-            onPressNext(selectedAnswer === wordDe, selectedAnswer)
-          }
+          onPressNext={onPressNext}
         />
       </Animated.View>
     </Block>

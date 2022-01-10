@@ -37,9 +37,11 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   >;
 
 // firebase
-export interface FirebaseExample {
-  sentence_en: string;
-  sentence_de: string;
-  word_en: string;
-  word_de: string;
+declare global {
+  export interface FirebaseExample {
+    sentenceEn: string;
+    sentenceDe: string;
+    wordEn: string;
+    wordDe: string;
+  }
 }

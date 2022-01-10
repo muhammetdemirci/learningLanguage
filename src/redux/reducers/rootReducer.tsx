@@ -24,7 +24,9 @@ const app = initReducer(REDUCERS.app, {
 interface StatusReducerProps {}
 const status = initReducer(REDUCERS.status, {});
 
-interface GameResultReducerProps {}
+interface GameResultReducerProps {
+  results: Array<GameResultProps>;
+}
 const gameResult = initReducer(REDUCERS.gameResult, {
   results: [],
 });

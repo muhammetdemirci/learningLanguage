@@ -10,7 +10,6 @@ import {
   QUESTION_INITIAL_BOTTOM,
 } from "./style";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { FirebaseExample } from "../types";
 import { shuffle } from "../utils/array";
 
 export function GameScreen({}) {
@@ -45,15 +44,15 @@ export function GameScreen({}) {
     const len = examples.length;
     if (len)
       return shuffle([
-        examples[index].word_de,
-        examples[(index + 1) % len].word_de,
-        examples[(index + 2) % len].word_de,
-        examples[(index + 3) % len].word_de,
+        examples[index].wordDe,
+        examples[(index + 1) % len].wordDe,
+        examples[(index + 2) % len].wordDe,
+        examples[(index + 3) % len].wordDe,
       ]);
     return [];
   };
 
-  const onPressNext = (word: string, sucess: boolean, answer: string) => {
+  const onPressNext = () => {
     // save results
     Animated.timing(bottom, {
       toValue: QUESTION_INITIAL_BOTTOM,
@@ -78,10 +77,7 @@ export function GameScreen({}) {
           <MissingWordQuestion
             key={`missingWord-${index}`}
             answers={getAnswers()}
-            sentenceDe={examples[index].sentence_de}
-            sentenceEn={examples[index].sentence_en}
-            wordDe={examples[index].word_de}
-            wordEn={examples[index].word_en}
+            example={examples[index]}
             onPressNextQuestion={onPressNext}
           />
         ) : null}

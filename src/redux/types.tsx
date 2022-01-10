@@ -9,5 +9,12 @@ export const CHANGE_REDUCER = (stateKey: string) =>
 export const REDUCERS = {
   app: "app",
   status: "status",
-  gameResult : "gameResult"
+  gameResult: "gameResult",
 };
+
+declare global {
+  interface GameResultProps extends FirebaseExample {
+    answer: string;
+    success: boolean;
+  }
+}
