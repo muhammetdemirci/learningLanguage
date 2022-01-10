@@ -15,6 +15,7 @@ import layout from "../../constants/styles/layout";
 import { QuestionResult } from "./questionResult";
 import { useDispatch } from "react-redux";
 import * as reduxActions from "../../redux/actions";
+import { GameBaseBlock } from "../gameBaseBlock";
 
 export interface MissingWordQuestionProps {
   answers: Array<string>;
@@ -70,16 +71,7 @@ export function MissingWordQuestion({
   };
 
   return (
-    <Block
-      flex
-      color={colors["background-game"]}
-      padding={16}
-      alignCenter
-      style={{
-        borderTopLeftRadius: 32,
-        borderTopRightRadius: 32,
-      }}
-    >
+    <GameBaseBlock alignCenter>
       <Block flex alignCenter>
         <Text margin={[16, 0]} fontFamily={"body1"}>
           Fill in the missing word
@@ -141,6 +133,6 @@ export function MissingWordQuestion({
           onPressNext={onPressNext}
         />
       </Animated.View>
-    </Block>
+    </GameBaseBlock>
   );
 }

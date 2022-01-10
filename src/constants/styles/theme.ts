@@ -19,6 +19,7 @@ declare global {
 
       correct: string;
       wrong: string;
+      black: string;
     };
   }
 }
@@ -28,12 +29,14 @@ export const DefaultTheme = {
   colors: {
     ...RNDefaultTheme.colors,
 
+    card: "#f4f4f4",
     text: "#ffffff",
     background: "rgb(117,219,253)",
     "background-game": "rgb(60,109,129)",
     "button-disable": "rgb(100,147,167)",
-    correct: "rgb(36,229,233)",
+    correct: "rgb(117,219,253)",
     wrong: "rgb(255,140,140)",
+    black: "#000000",
   },
 };
 

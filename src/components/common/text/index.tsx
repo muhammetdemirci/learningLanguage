@@ -5,8 +5,8 @@ import { FONT_STYLES } from "../../../constants/styles/font";
 import { StyleProp, TextStyle } from "react-native";
 import { useTheme } from "@react-navigation/native";
 
-export interface TextProps extends TextBaseProps, withMarginAndPaddingProps {
-  fontFamily:
+declare global {
+  type FontFamily =
     | "h1"
     | "h2"
     | "h3"
@@ -23,6 +23,9 @@ export interface TextProps extends TextBaseProps, withMarginAndPaddingProps {
     | "caption"
     | "overline"
     | "label";
+}
+export interface TextProps extends TextBaseProps, withMarginAndPaddingProps {
+  fontFamily: FontFamily;
 
   align?: "auto" | "left" | "right" | "center" | "justify";
   transform?: "none" | "capitalize" | "uppercase" | "lowercase";

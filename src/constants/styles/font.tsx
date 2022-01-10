@@ -126,7 +126,7 @@ export const FONT_STYLES: FontStylesType = {
     fontSize: 12,
   },
   label: {
-    fontFamily: "Roboto-Medium",
-    fontSize: 12,
+    fontFamily: "Roboto-Regular",
+    fontSize: 14,
   },
 };

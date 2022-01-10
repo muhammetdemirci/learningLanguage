@@ -11,6 +11,7 @@ import {
 } from "./style";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { shuffle } from "../utils/array";
+import { GameResultScreen } from "./gameResult/GameResultScreen";
 
 export function GameScreen({}) {
   // theme
@@ -19,7 +20,7 @@ export function GameScreen({}) {
   const [bottom] = useState(new Animated.Value(QUESTION_INITIAL_BOTTOM));
 
   const [examples, setExamples] = useState<Array<FirebaseExample>>([]);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(4);
 
   useEffect(() => {
     const db = getDatabase();
@@ -64,7 +65,7 @@ export function GameScreen({}) {
   };
 
   return (
-    <Block flex={1} color={colors.background}>
+    <Block flex color={colors.background}>
       <Animated.View
         style={{
           position: "absolute",
@@ -73,14 +74,18 @@ export function GameScreen({}) {
           width: layout.window.width,
         }}
       >
-        {examples.length && examples.length > index ? (
-          <MissingWordQuestion
-            key={`missingWord-${index}`}
-            answers={getAnswers()}
-            example={examples[index]}
-            onPressNextQuestion={onPressNext}
-          />
-        ) : null}
+        {examples.length > index ? (
+          examples.length ? (
+            <MissingWordQuestion
+              key={`missingWord-${index}`}
+              answers={getAnswers()}
+              example={examples[index]}
+              onPressNextQuestion={onPressNext}
+            />
+          ) : null
+        ) : (
+          <GameResultScreen onPressPlayAgain={() => setIndex(0)} />
+        )}
       </Animated.View>
     </Block>
   );
