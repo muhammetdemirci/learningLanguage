@@ -25,7 +25,7 @@ export function Answer({
   return (
     <TouchableOpacity
       color={colors.text}
-      height={40}
+      height={48}
       margin={8}
       padding={[8, 12]}
       borderRadius={16}

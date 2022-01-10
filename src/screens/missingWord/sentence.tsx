@@ -75,5 +75,5 @@ interface BlockAnswerProps extends BlockProps {
   biggestLength: number;
 }
 function BlockAnswer({ biggestLength, ...rest }: BlockAnswerProps) {
-  return <Block width={biggestLength * 12} {...rest} />;
+  return <Block width={biggestLength * 16} {...rest} />;
 }
