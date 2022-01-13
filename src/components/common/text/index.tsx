@@ -1,24 +1,23 @@
-import React from "react";
-import { TextBase, TextBaseProps } from "./base";
-import { withMarginAndPaddingProps } from "../hocs";
-import { FONT_STYLES } from "../../../constants/styles/font";
-import { StyleProp, TextStyle } from "react-native";
-import { useTheme } from "@react-navigation/native";
+import React from 'react'
+import { TextBase, TextBaseProps } from './base'
+import { withMarginAndPaddingProps } from '../hocs'
+import { FONT_STYLES } from '../../../constants/styles/font'
+import { StyleProp, TextStyle } from 'react-native'
+import { useTheme } from '@react-navigation/native'
 
-export interface TextProps extends TextBaseProps, withMarginAndPaddingProps {
-  fontFamily: FontFamily;
+export interface TextProps extends TextBaseProps {
+  fontFamily: FontFamily
 
-  align?: "auto" | "left" | "right" | "center" | "justify";
-  transform?: "none" | "capitalize" | "uppercase" | "lowercase";
-
-  color?: string;
-  font?: string;
-  style?: StyleProp<TextStyle>;
-  children?: any; // TODO
+  align?: 'auto' | 'left' | 'right' | 'center' | 'justify'
+  transform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase'
+  color?: string
+  font?: string
+  style?: StyleProp<TextStyle>
+  // children?: React.ReactNode
 }
 
 export function Text(props: TextProps) {
-  const { colors } = useTheme();
+  const { colors } = useTheme()
 
   const {
     fontFamily,
@@ -29,7 +28,7 @@ export function Text(props: TextProps) {
     font,
     style,
     ...rest
-  } = props;
+  } = props
 
   return (
     <TextBase
@@ -42,5 +41,5 @@ export function Text(props: TextProps) {
       ]}
       {...rest}
     />
-  );
+  )
 }
